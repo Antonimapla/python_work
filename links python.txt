@@ -1,0 +1,6 @@
+
+
+link para todos los archivos de python y pygame
+
+https://www.lfd.uci.edu/~gohlke/pythonlibs/
+añadido desde github

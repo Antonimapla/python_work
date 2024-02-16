@@ -1,0 +1,8 @@
+link para todos los archivos de python y pygame
+
+https://www.lfd.uci.edu/~gohlke/pythonlibs/
+
+
+
+
+python3 -m pip install pygame-2.1.2-cp311-cp311-win64_amd.whl
