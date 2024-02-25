@@ -3,29 +3,31 @@ from plotly import offline
 
 from die import Die
 
-#crea un d6
-die = Die()
+#crea dos dados d6
+die_1 = Die()
+die_2 = Die()
+
 #hace algunas tiradas y guarda los resultados en una lista
 results = []
 for roll_num in range(1000):
-    result = die.roll()
+    result = die_1.roll() + die_2.roll()
     results.append(result)
 
 #analiza los resultados
 frequencies = []
-for value in range(1, die.num_sides+1):
+max_result = die_1.num_sides + die_2.num_sides
+for value in range(2, max_result + 1):
     frequency = results.count(value)
     frequencies.append(frequency)
 print(frequencies)
 
 #visualiza resultados
-x_values = list(range(1, die.num_sides+1))
+x_values = list(range(2, max_result + 1))
 data = [Bar(x=x_values, y=frequencies)]
 
-x_axis_config = {'title': 'Result'}
+x_axis_config = {'title': 'Result', 'dtick': 1}
 y_axis_config = {'title': 'Frequency of Result'}
-my_layout = Layout(title='Results of rollingone D6 1000 times',
+my_layout = Layout(title='Results of rollingone two D6 1000 times',
     xaxis=x_axis_config, yaxis=y_axis_config)
-offline.plot({'data': data, 'layout': my_layout}, filename='d6.html')
+offline.plot({'data': data, 'layout': my_layout}, filename='d6_d6.html')
     
-print(frequencies)
